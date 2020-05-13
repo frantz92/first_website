@@ -420,14 +420,13 @@ form {
 }
 
 @media (max-width: 375px) {
+  .page-title span {
+      letter-spacing: -4px;
+      font-family: 'Signika', sans-serif;
+      font-size: 68px;
+  }
 
-.page-title span {
-    letter-spacing: -4px;
-    font-family: 'Signika', sans-serif;
-    font-size: 68px;
-}
-
-.element .image {
-    margin-right: 150px;
-}
+  .element .image {
+      margin-right: 150px;
+  }
 }
