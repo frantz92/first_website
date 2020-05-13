@@ -5,10 +5,12 @@
 
 body {
   margin: 0;
+  padding: 0;
   font-size: 16px;
   line-height: 1.7;
   font-family: 'Inconsolata', monospace;
-  color: #2c2c54;
+  color: #030073;
+  cursor: default;
 }
 
 .container {
@@ -19,6 +21,22 @@ body {
 
 section {
   padding: 46px 0;
+}
+
+.section-title {
+  font-size: 48px;
+  margin: 0 0 72px 0;
+}
+
+.wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  width: 95%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  margin: 0 auto;
 }
 
 .btn {
@@ -41,22 +59,6 @@ section {
 .btn:hover {
   background-position: 0 100%;
   color: white;
-}
-
-.section-title {
-  font-size: 48px;
-  margin: 0 0 72px 0;
-}
-
-.wrapper {
-  display: -ms-flexbox;
-  display: flex;
-  width: 95%;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  margin: 0 auto;
 }
 
 /*Navigation*/
@@ -83,13 +85,13 @@ section {
 }
 
 .navigation a:hover {
-  color: #33d9b2;
+  color: #030073;
 }
 
 .navigation ul ul {
   display: none;
   position: absolute;
-  background-color: white;
+  background-color: inherit;
   left: 50%;
   transform: translateX(-50%);
   padding: 12px 0 0 0;
@@ -101,13 +103,13 @@ section {
 }
 
 .navigation ul ul li a {
-  color: #0097e6;
+  color: white;
   display: block;
   padding: 0 24px;
 }
 
 .navigation ul ul li:hover {
-  color: #33d9b2;
+  color: #030073;
 }
 
 .navigation li:hover ul {
@@ -127,6 +129,7 @@ section {
 .splash-inner {
   margin: auto;
   max-width: 70%;
+  min-width: 550px;
 }
 
 .page-title {
@@ -137,9 +140,75 @@ section {
   font-weight: 700;
 }
 
-.page-title span {
+.page-title span::before {
+  content: 'architects.';
+  color: #0097e6;
   letter-spacing: -4px;
   font-family: 'Signika', sans-serif;
+  animation: change-text infinite 16s;
+}
+
+@keyframes change-text {
+  5% {
+    content: "architects.";
+    color: white;
+  }
+  14% {
+    content: "architects.";
+    color: white;
+  }
+  19% {
+    content: "architects.";
+    color: #0097e6;
+  }
+  20% {
+    content: 'designers.';
+    color: #0097e6;
+  }
+  25% {
+    content: 'designers.';
+    color: white;
+  }
+  34% {
+    content: 'designers.';
+    color: white;
+  }
+  39% {
+    content: 'designers.';
+    color: #0097e6;
+  }
+  40% {
+    content: "enthusiasts.";
+    color: #0097e6;
+  }
+  45% {
+    content: "enthusiasts.";
+    color: white;
+  }
+  54% {
+    content: "enthusiasts.";
+    color: white;
+  }
+  59% {
+    content: "enthusiasts.";
+    color: #0097e6;
+  }
+  60% {
+    content: 'creatively.';
+    color: #0097e6;
+  }
+  65% {
+    content: 'creatively.';
+    color: white;
+  }
+  94% {
+    content: 'creatively.';
+    color: white;
+  }
+  99% {
+    content: 'creatively.';
+    color: #0097e6;
+  }
 }
 
 .page-subtitle {
@@ -166,15 +235,8 @@ section {
       flex: 0 0 33.3333%;
 }
 
-/*.wrapper h2 {
-position: absolute;
-font-family: 'Signika', sans-serif;
-font-size: 144px;
-opacity: 0.1;
-top: -170px;
-}*/
 .wrapper h3 {
-  font-size: 24px;
+  font-size: 23px;
 }
 
 .our-services .wrapper h3::before {
@@ -380,7 +442,7 @@ input::placeholder, textarea::placeholder {
   display: -ms-flexbox;
   display: flex;
   font-size: 30px;
-  background: red;
+  background: #0097e6;
   width: 60px;
   height: 60px;
   line-height: 60px;
@@ -403,7 +465,16 @@ input::placeholder, textarea::placeholder {
 }
 
 /*Media*/
+@media (max-width: 1000px) {
+  .wrapper h3 {
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 767px) {
+  .splash-inner {
+    min-width: auto;
+  }
   .wrapper {
     -ms-flex-direction: column;
         flex-direction: column;
@@ -423,11 +494,14 @@ input::placeholder, textarea::placeholder {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 400px) {
+  .page-title {
+    font-size: 58px;
+  }
   .page-title span {
     letter-spacing: -4px;
     font-family: 'Signika', sans-serif;
-    font-size: 68px;
+    font-size: 58px;
   }
   .element .image {
     margin-right: 150px;
